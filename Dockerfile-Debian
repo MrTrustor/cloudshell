@@ -1,7 +1,7 @@
 # Keep this in sync with Dockerfile-Fedora
 
-FROM golang AS gotty-build
-RUN go get github.com/yudai/gotty \
+FROM golang:1.17 AS gotty-build
+RUN go get github.com/sorenisanerd/gotty \
  && echo GOPATH=$GOPATH && $GOPATH/bin/gotty || true
 
 FROM debian:latest AS debian-updated
